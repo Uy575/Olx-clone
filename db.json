@@ -1,0 +1,88 @@
+{
+ 
+    "products": [
+     
+        {
+            "id":1,
+            "featured": "false",
+            "productName" : "one",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        
+        {
+            "id":2,
+            "featured": "true",
+            "productName" : "two",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":3,
+            "featured": "false",
+            "productName" : "three",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":4,
+            "featured": "false",
+            "productName" : "four",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":5,
+            "featured": "true",
+            "productName" : "five",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":6,
+            "featured": "false",
+            "productName" : "six",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":7,
+            "featured": "false",
+            "productName" : "seven",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":8,
+            "featured": "false",
+            "productName" : "eight",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":9,
+            "featured": "true",
+            "productName" : "nine",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        },
+        {
+            "id":10,
+            "featured": "true",
+            "productName" : "ten",
+            "description" : "Flower",
+            "price" : 20000,
+            "Image": "https://www.shutterstock.com/image-photo/70cc-bike-parking-naushehra-punjab-260nw-1651174243.jpg"
+        }
+    ]
+ 
+}

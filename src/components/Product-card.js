@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 function ProductCard({product}) {
- 
+  
+
      
   return (
     <NavLink style={{textDecoration:"none"}} to={`/detail/${product.id}`}>

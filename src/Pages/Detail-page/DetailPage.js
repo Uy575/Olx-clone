@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AddButton from '../../components/Buttons/AddAndSeachButton';
+import Form from '../../components/Form';
 import ProductCard from '../../components/Product-card';
 import ProductList from '../../components/Product-list';
-import SearchItem from '../../components/Search-item';
 
 function DetailPage() {
     const [product,setProduct] = useState({ })
@@ -43,7 +43,7 @@ function DetailPage() {
 
   return (
     <>
-    <SearchItem/>
+     <Form/>
     <AddButton buttonValue='+SELL YOUR ITEM'/>
     <div>
         <ProductCard product={product}/>

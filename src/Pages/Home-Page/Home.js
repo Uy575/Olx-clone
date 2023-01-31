@@ -1,8 +1,9 @@
-import ProductList from '../../components/Product-list'
-import AddItem from '../../components/Add-item';
-import SearchItem from '../../components/Search-item';
+
 import './Home.css'
-import Porducts from '../../components/Porducts';
+import Products from '../../components/Products';
+import CarouselComp from '../../components/Carousel';
+import ModalComp from '../../components/Modal';
+import Form from '../../components/Form';
 function Home() {
    
    
@@ -10,9 +11,13 @@ function Home() {
          
     <div>
     
-        <SearchItem/>
-        <AddItem/>
-        <Porducts/>
+         <Form/>
+        <ModalComp/>
+        <br/>
+        <div>ALL CATEGORIES - Mobile | Phones | Cars | Motorcycles | Houses | TV - Video-Audio | Tablets | Land & Plots</div>
+        <CarouselComp/>
+        <Products/>
+
             
 
     </div>

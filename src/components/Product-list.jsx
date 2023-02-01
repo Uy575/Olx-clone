@@ -2,33 +2,43 @@ import React from 'react'
 import ProductCard from './Product-card'
 import { useSelector } from 'react-redux'
 import { useState,useEffect } from 'react';
+import Pagination from './Pagination';
 function ProductList() {
   const productState = useSelector((state)=>state.product)
   const {products,userSearchValue} = productState;
   const [filterProducts,setFilterProducts] = useState(products);
 
-  
-  const ProductsMapping = products.map((product)=>{
-    return product
-  })
-   
-  useEffect(()=>{
-    const filterValue = ProductsMapping.filter((filteredProduct)=>{
-      return filteredProduct.productName.includes(userSearchValue)
-      
-    })
+  const [currentPage,setCurrentPage] = useState(1);
+  const [productPerPage] = useState(8)
 
-    setFilterProducts(filterValue);
+
+  
+  // const ProductsMapping = products.map((product)=>{
+  //   return product
+  // })
+   
+  // useEffect(()=>{
+  //   const filterValue = currentProducts.filter((filteredProduct)=>{
+  //     return filteredProduct.productName.includes(userSearchValue)
+      
+  //   })
+
+  //   setFilterProducts(filterValue);
     
-  },[userSearchValue,products])
+  // },[userSearchValue,products])
+
+  const lastProductIndex = currentPage * productPerPage;
+  const firstProductIndex = lastProductIndex - productPerPage;
+  const currentProducts = products.slice(firstProductIndex,lastProductIndex); 
 
   return (
     <div className='mainContainer'>
     {
-        filterProducts.map(product =>{
+        currentProducts.map(product =>{
             return <ProductCard key={product.id} product={product}/>
         })
     }
+     <Pagination totalProducts={products.length} productsPerPage = {productPerPage} setCurrentPage={setCurrentPage}/>
 
 
     </div>

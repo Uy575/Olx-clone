@@ -1,5 +1,4 @@
 import React from 'react'
-import ModalComp from '../Modal';
 import './AddAndSearch.css'
 function AddButton({buttonValue}) {
 

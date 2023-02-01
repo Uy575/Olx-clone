@@ -1,56 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import AddButton from '../../components/Buttons/AddAndSeachButton';
 import Form from '../../components/Form';
-import ProductCard from '../../components/Product-card';
 import ProductList from '../../components/Product-list';
+import { useDispatch } from 'react-redux'
+import { gettingApiData } from '../../Redux/ProductReducers';
+import { gettingApiDataForSingleProduct } from '../../Redux/ProductReducers';
+import ModalComp from '../../components/Modal';
+import DetailCard from '../../components/DetailCard';
 
 function DetailPage() {
-    const [product,setProduct] = useState({ })
-    const [relatedProducts,setRelatedProducts] = useState([]);
     const {id} = useParams();
+    const dispatch = useDispatch();
      
     useEffect(()=>{
         
-        const fetchingProduct = async ( ) =>{
-            fetch(`http://localhost:3001/products/${id}`)
-            .then(res => res.json())
-            .then(json => setProduct(json))
-            .catch(e => console.log(e))
+         dispatch(gettingApiDataForSingleProduct(`http://localhost:3001/products/${id}`))
 
-         }
-          
-        fetchingProduct();
      },[id])
       
 
      useEffect(()=>{
-        
-        const filteringProduct = async ( ) =>{
-            fetch(`http://localhost:3001/products?id_ne=${id}&_sort=featured&_order=desc`)
-            .then(res => res.json())
-            .then(json => setRelatedProducts(json))
-            .catch(e => console.log(e))
 
-         }
-          
-        filteringProduct();
+         dispatch(gettingApiData(`http://localhost:3001/products?id_ne=${id}&_sort=featured&_order=desc`))
+
      },[id])
 
-    
-
-       
 
   return (
     <>
      <Form/>
-    <AddButton buttonValue='+SELL YOUR ITEM'/>
+     <ModalComp />
     <div>
-        <ProductCard product={product}/>
+         <DetailCard/>
     </div>
     <h1>Related Products</h1>
     <div>
-        <ProductList products={relatedProducts}/>
+        <ProductList/>
     </div>
     </>
     

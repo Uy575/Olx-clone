@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from './Product-card'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useState,useEffect } from 'react';
 function ProductList() {
   const productState = useSelector((state)=>state.product)

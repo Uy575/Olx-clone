@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
 import './Form.css'
-import AddButton from './Buttons/AddAndSeachButton';
 import { useDispatch } from 'react-redux';
 import { userSearchValue } from '../Redux/ProductReducers';
 function Form() {
@@ -26,8 +24,6 @@ function Form() {
       <form onSubmit={onSubmit}>
          
          <input className='inputField' type = 'text' placeholder = 'Search Product' onChange={onChangeHandler}/>
-         <AddButton buttonValue='SEARCH ITEM'/>
-
       </form>
   )
 }

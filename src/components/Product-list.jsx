@@ -10,7 +10,7 @@ function ProductList() {
   const [filterProducts,setFilterProducts] = useState(products);
 
   const [currentPage,setCurrentPage] = useState(1);
-  const [productPerPage] = useState(4)
+  const [productPerPage] = useState(8)
 
 
   

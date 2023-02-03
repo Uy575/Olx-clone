@@ -19,7 +19,7 @@ function ProductCard({product}) {
     </div>  
      <div className={`${product.featured===true? "productContent active":"productContent"}`}>
     
-    <h4><span>Name: {product.productName}</span>Price: {product.price}Pkr</h4>
+    <h4><span>Product category: {product.productName}</span>Price: {product.price}Pkr</h4>
     <p>Location: {product.Location}</p>
      </div>
   

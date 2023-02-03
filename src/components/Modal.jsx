@@ -11,6 +11,8 @@ import './SellButton.css'
 function ModalComp() {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
+  const [checked,setChecked] = useState(false)
+  const [productImage,setProductImage] = useState(null);
   const initialValue = {
      
     productName : '',
@@ -22,13 +24,14 @@ function ModalComp() {
     area : '',
     ProductCondition : 0,
     sellerName : '',
-    checked : false,
-    productImage : null
+
 
 
  }
+
+  const [postData,setPostData ] = useState({initialValue})
     
-  const {productName,productPrice,productDescription,userContact,detailDescription,location,area,productCondition,sellerName,checked,productImage} = initialValue;
+  const {productName,productPrice,productDescription,userContact,detailDescription,location,area,productCondition,sellerName} = initialValue;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -36,22 +39,22 @@ function ModalComp() {
   const toggle = (value)=>{
       return !value;
     }
-
+ 
 
   const UploadingDetail = () =>{
    
     const addingUserProduct = async () =>{
  
         const req = await axios.post(`http://localhost:3001/products`,{
-        productName: productName,
-        description: productDescription,
-        price : productPrice,
+        productName: postData.productName,
+        description: postData.productDescription,
+        price : postData.productPrice,
         featured : checked,
-        UserContact : userContact,
-        DetailDescription : detailDescription,
-        SellerName : sellerName,
-        Location :  area + "," +location,
-        ProductCondition : productCondition,
+        UserContact :postData.userContact,
+        DetailDescription : postData.detailDescription,
+        SellerName : postData.sellerName,
+        Location :  postData.area + "," + postData.location,
+        ProductCondition : postData.productCondition,
         Image: productImage
         });
 
@@ -67,10 +70,16 @@ function ModalComp() {
     const reader = new FileReader();
     reader.readAsDataURL(Image[0]);
     reader.onload = (e)=>{
-        productImage = e.target.result;
+        setProductImage(e.target.result);
     }
-    console.log(productImage);
+  
   }
+
+    // const settingValue = (e) =>{
+    //   postData.productPrice = e.target.value
+    // }
+
+
   return (
     <>
       <Button variant="primary" className="button-8" onClick={handleShow}>
@@ -83,60 +92,60 @@ function ModalComp() {
         <Modal.Body>
           <FloatingLabel label="Product Catagory" className="mb-3">
             <Form.Control type="text" onChange={(e)=>{
-                productName = e.target.value
+                 postData.productName = e.target.value
             }} />
           </FloatingLabel>
           <FloatingLabel label="Price">
             <Form.Control type="number" onChange={(e)=>{
-                productPrice = e.target.value
+                  postData.productPrice = e.target.value
             }} />
           </FloatingLabel>
           <br />
           <FloatingLabel label="Product description" className="mb-3">
             <Form.Control type="text" onChange={(e)=>{
-                productDescription = e.target.value
+              postData.productDescription = e.target.value
             }} />
             </FloatingLabel>
             <FloatingLabel label="Your Name">
             <Form.Control type="text" onChange={(e)=>{
-              sellerName = e.target.value
+             postData.sellerName = e.target.value
             }} />
           </FloatingLabel>
           <br/>
           <FloatingLabel label="Contact">
             <Form.Control type="number" onChange={(e)=>{
-                userContact = e.target.value
+              postData.userContact = e.target.value
             }} />
             <br/>
           </FloatingLabel>
           <FloatingLabel label="condition 0/10">
             <Form.Control type="number"  onChange={(e)=>{
-                productCondition = e.target.value
+              postData.productCondition = e.target.value
             }} />
           </FloatingLabel>
           <br/>
           <FloatingLabel label="Enter City">
             <Form.Control type="text" onChange={(e)=>{
-                location = e.target.value
+              postData.location = e.target.value
             }} />
           </FloatingLabel>
           <br/>
             <FloatingLabel label="Enter Area">
             <Form.Control type="text" onChange={(e)=>{
-              area = e.target.value
+             postData.area = e.target.value
             }} />
           </FloatingLabel>
           <br/>
           <FloatingLabel label="Detail Description">
             <Form.Control as="textarea"  onChange={(e)=>{
-                detailDescription = e.target.value
+              postData.detailDescription = e.target.value
             }} />
           </FloatingLabel>
           <br/>
           <input type="file" onChange={onImageFileChangeHandler} />
           <label htmlFor = "input">
           Want Featured? 
-          <input type ="checkbox" checked = {checked} onChange = {()=> checked(toggle)}/>
+          <input type ="checkbox" checked = {checked} onChange = {()=> setChecked(toggle)}/>
           </label>
         </Modal.Body>
         <Modal.Footer>

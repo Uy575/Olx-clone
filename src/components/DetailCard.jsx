@@ -29,7 +29,7 @@ function DetailCard() {
      <div>
     
         <div className= 'detailProductContent'>
-        <h4><span>ProductName: {singleProduct.productName}</span>
+        <h4><span>Product category: {singleProduct.productName}</span>
          Price: {singleProduct.price}Pkr</h4>
         <p>Location: {singleProduct.Location}</p>
         </div>

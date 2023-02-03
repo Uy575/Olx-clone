@@ -6,7 +6,7 @@ function ProductCard({product}) {
      
   return (
     <NavLink  className= "productCard"style={{textDecoration:"none"}} to={`/detail/${product.id}`}>
-    {/* <div>   */}
+
     <div className='imageDiv'>
     <img className='img' src={product.Image} alt={product.description}></img>
    
@@ -22,7 +22,7 @@ function ProductCard({product}) {
     <h4><span>Name: {product.productName}</span>Price: {product.price}Pkr</h4>
     <p>Location: {product.Location}</p>
      </div>
-   {/* </div>  */}
+  
   </NavLink>
   )
 

@@ -6,7 +6,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { gettingApiData } from "../Redux/ProductReducers";
-import './Buttons/AddAndSeachButton';
+import './SellButton.css'
 
 function ModalComp() {
   const [show, setShow] = useState(false);
@@ -74,7 +74,7 @@ function ModalComp() {
   return (
     <>
       <Button variant="primary" className="button-8" onClick={handleShow}>
-        +SELL YOUR ITEM
+        +SELL YOUR PRODUCT
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

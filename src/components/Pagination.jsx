@@ -1,20 +1,20 @@
 import React from 'react'
-
-function Pagination({totalProducts,productsPerPage,setCurrentPage}) {
+import './Pagination.css'
+function Pagination({totalProducts,productsPerPage,setCurrentPage,currentPage}) {
     let pages = [];
     const ratio = Math.ceil(totalProducts / productsPerPage)
     for(let i = 1; i<= ratio; i++){
         pages.push(i);
     }
- 
-    console.log(pages)
+
 
   return (
-    <div>
+    <div style={{display:'flex',flexWrap:'wrap'}}>
         {
           pages.map((page,i)=>{
-            //   <div>hello</div>
-               return <button key={i} onClick={()=> setCurrentPage(page)}>{page}</button>
+             
+               return   <button className={`${page === currentPage? "pagination active":"pagination"}`}  key={i} onClick={()=> setCurrentPage(page)} >{page}</button> 
+          
           })
 
        }

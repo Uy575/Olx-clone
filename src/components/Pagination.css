@@ -1,0 +1,23 @@
+.center {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+.pagination{
+font-size: 18px;
+/* float: left; */
+margin:0px 6px;
+padding: 8px 16px;
+text-decoration: none;
+border:1px solid grey;
+
+}
+.pagination.active {
+background-color:#ffce32;
+}
+.pagination:hover:not(.active) {
+background-color: #d4d5d2;
+}
+

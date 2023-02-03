@@ -31,9 +31,9 @@ function DetailPage() {
      <Form/>
      <ModalComp />
     <div>
-         <DetailCard/>
+     <DetailCard/>
     </div>
-    <h1>Related Products</h1>
+    <h4 style={{textAlign:'center',marginTop:'2rem'}}>Related Products</h4>
     <div>
         <ProductList/>
     </div>

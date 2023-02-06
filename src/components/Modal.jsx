@@ -13,8 +13,9 @@ function ModalComp() {
   const dispatch = useDispatch();
   const [checked,setChecked] = useState(false)
   const [productImage,setProductImage] = useState(null);
-  const initialValue = {
-     
+
+ //setting initil vlues for adding product
+  const initialValue = {   
     productName : '',
     productPrice : 0,
     productDescription : '',
@@ -28,9 +29,12 @@ function ModalComp() {
 
 
  }
-
+  
+ //setting initial value in post data
   const [postData] = useState({initialValue})
     
+
+  //function to close modal
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -38,7 +42,7 @@ function ModalComp() {
       return !value;
     }
  
-
+    //adding given data to products api
   const UploadingDetail = () =>{
    
     const addingUserProduct = async () =>{
@@ -63,6 +67,8 @@ function ModalComp() {
    handleClose();
   }
 
+  //function to handle read file 
+
   const onImageFileChangeHandler = (e) =>{
     const Image = e.target.files;
     const reader = new FileReader();
@@ -73,13 +79,10 @@ function ModalComp() {
   
   }
 
-    // const settingValue = (e) =>{
-    //   postData.productPrice = e.target.value
-    // }
-
 
   return (
     <>
+      {/* creating Modal fields  */}
       <Button variant="primary" className="button-8" onClick={handleShow}>
         +SELL YOUR PRODUCT
       </Button>

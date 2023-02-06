@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import bottomLogo from '../../assets/olx-logo-2.png'
 
 function Home() {
+  //creating home page
   const productState = useSelector((state)=>state.product)
   const {userSearchValue} = productState;
    

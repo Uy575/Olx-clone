@@ -9,15 +9,21 @@ import ModalComp from '../../components/Modal';
 import DetailCard from '../../components/DetailCard';
 
 function DetailPage() {
+ 
+  //creating detail page and relative products
+   
     const {id} = useParams();
     const dispatch = useDispatch();
+    
      
+    //function for single product detail
     useEffect(()=>{
         
          dispatch(gettingApiDataForSingleProduct(`http://localhost:3001/products/${id}`))
 
      },[id])
       
+     //function for relative products
 
      useEffect(()=>{
 

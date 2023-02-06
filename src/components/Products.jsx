@@ -5,7 +5,8 @@ import { useDispatch } from 'react-redux'
 import {gettingApiData } from '../Redux/ProductReducers'
 
 function Products() {
-
+ 
+  //dispatching products api for homepage and creating list of products
      const [isLoading,setIsLoading] = useState(true)
     const dispatch = useDispatch()
 

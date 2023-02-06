@@ -4,17 +4,16 @@ import { userSearchValue } from '../Redux/ProductReducers';
 import topLogo from '../assets/olxLogo.png'
 function Form() {
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // to send value to redux
 
 
-  
-
+  //function to handle on change user search value
   const onChangeHandler = e =>{
     console.log(e.target.value)
     dispatch(userSearchValue(e.target.value.toLocaleLowerCase()));
   }
  
-
+ //function when form submitted
   const onSubmit = e =>{
     e.preventDefault();
 

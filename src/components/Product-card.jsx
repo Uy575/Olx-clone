@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../Pages/Home-Page/Home.css'
 function ProductCard({product}) {
   
-     
+     //creating single card
   return (
     <NavLink  className= "productCard"style={{textDecoration:"none"}} to={`/detail/${product.id}`}>
 

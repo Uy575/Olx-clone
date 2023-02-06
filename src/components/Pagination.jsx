@@ -1,10 +1,10 @@
 import React from 'react'
 import './Pagination.css'
 function Pagination({totalProducts,productsPerPage,setCurrentPage,currentPage}) {
-    let pages = [];
+    let pages = []; //setting blank array
     const ratio = Math.ceil(totalProducts / productsPerPage)
     for(let i = 1; i<= ratio; i++){
-        pages.push(i);
+        pages.push(i); //pushing results into blank array
     }
 
 

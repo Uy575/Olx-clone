@@ -24,7 +24,7 @@ function Form() {
   return (
       <form onSubmit={onSubmit}>
         <div>
-        <span> <img src={topLogo} height='70rem' style={{position:'absolute',top:'15px',left:'40px'}}/> </span>
+        <span> <img src={topLogo} height='70rem' style={{position:'absolute',top:'15px',left:'40px'}} alt='Logo'/> </span>
          <input className='inputField' type = 'text' placeholder = 'Search Product' onChange={onChangeHandler}/>
         </div>
       </form>

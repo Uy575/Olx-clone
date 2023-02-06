@@ -29,10 +29,8 @@ function ModalComp() {
 
  }
 
-  const [postData,setPostData ] = useState({initialValue})
+  const [postData] = useState({initialValue})
     
-  const {productName,productPrice,productDescription,userContact,detailDescription,location,area,productCondition,sellerName} = initialValue;
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -91,41 +89,44 @@ function ModalComp() {
         </Modal.Header>
         <Modal.Body>
           <FloatingLabel label="Product Catagory" className="mb-3">
-            <Form.Control type="text" onChange={(e)=>{
+            <Form.Control  type="text" onChange={(e)=>{
                  postData.productName = e.target.value
-            }} />
+            }} required />
           </FloatingLabel>
           <FloatingLabel label="Price">
             <Form.Control type="number" onChange={(e)=>{
                   postData.productPrice = e.target.value
-            }} />
+            }} required />
           </FloatingLabel>
           <br />
           <FloatingLabel label="Product description" className="mb-3">
             <Form.Control type="text" onChange={(e)=>{
               postData.productDescription = e.target.value
-            }} />
+            }} required/>
             </FloatingLabel>
             <FloatingLabel label="Your Name">
             <Form.Control type="text" onChange={(e)=>{
              postData.sellerName = e.target.value
-            }} />
+            }} required/>
           </FloatingLabel>
           <br/>
           <FloatingLabel label="Contact">
             <Form.Control type="number" onChange={(e)=>{
               postData.userContact = e.target.value
-            }} />
+            }} required/>
             <br/>
           </FloatingLabel>
           <FloatingLabel label="condition 0/10">
             <Form.Control type="number"  onChange={(e)=>{
               postData.productCondition = e.target.value
-            }} />
+            }}required />
           </FloatingLabel>
           <br/>
           <FloatingLabel label="Enter City">
-            <Form.Control type="text" onChange={(e)=>{
+            <Form.Control
+            required
+            type="text"
+             onChange={(e)=>{
               postData.location = e.target.value
             }} />
           </FloatingLabel>
@@ -133,19 +134,19 @@ function ModalComp() {
             <FloatingLabel label="Enter Area">
             <Form.Control type="text" onChange={(e)=>{
              postData.area = e.target.value
-            }} />
+            }}required/>
           </FloatingLabel>
           <br/>
           <FloatingLabel label="Detail Description">
             <Form.Control as="textarea"  onChange={(e)=>{
               postData.detailDescription = e.target.value
-            }} />
+            }} required />
           </FloatingLabel>
           <br/>
           <input type="file" onChange={onImageFileChangeHandler} />
           <label htmlFor = "input">
           Want Featured? 
-          <input type ="checkbox" checked = {checked} onChange = {()=> setChecked(toggle)}/>
+          <input type ="checkbox" checked = {checked} onChange = {()=> setChecked(toggle)} />
           </label>
         </Modal.Body>
         <Modal.Footer>

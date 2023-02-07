@@ -49,17 +49,20 @@ function ModalComp() {
 
   //adding given data to products api
   const UploadingDetail = (values) => {
+    
+    const {productName,productDescription,productPrice,UserContact,detailDescription,sellerName,area,location,ProductCondition} = values
+
     const addingUserProduct = async () => {
       const req = await axios.post(`http://localhost:3001/products`, {
-        productName: values.productName,
-        description: values.productDescription,
-        price: values.productPrice,
+        productName: productName,
+        description: productDescription,
+        price: productPrice,
         featured: checked,
-        UserContact: values.UserContact,
-        DetailDescription: values.detailDescription,
-        SellerName: values.sellerName,
-        Location: values.area + "," + values.location,
-        ProductCondition: values.ProductCondition,
+        UserContact: UserContact,
+        DetailDescription: detailDescription,
+        SellerName: sellerName,
+        Location: area + "," + location,
+        ProductCondition: ProductCondition,
         Image: productImage,
       });
 

@@ -17,43 +17,36 @@ function ModalComp() {
   const [productImage, setProductImage] = useState(null);
 
   //setting initil vlues for adding product
-
+ const initialValues = {
+  productName: "",
+  productPrice: "",
+  productDescription: "",
+  UserContact: "",
+  detailDescription: "",
+  location: "",
+  area: "",
+  ProductCondition: "",
+  sellerName: "",
+  
+}
   const formik = useFormik({
-    initialValues: {
-      productName: "",
-      productPrice: "",
-      productDescription: "",
-      UserContact: "",
-      detailDescription: "",
-      location: "",
-      area: "",
-      ProductCondition: "",
-      sellerName: "",
-      
-    },
+    initialValues,
     validationSchema: modalSchema,
-
     onSubmit: (values) => {
       UploadingDetail(values);
     },
   });
 
 
-  //function to close modal
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const toggle = (value) => {
-    return !value;
-  };
+ 
 
   //adding given data to products api
   const UploadingDetail = (values) => {
-    
+
     const {productName,productDescription,productPrice,UserContact,detailDescription,sellerName,area,location,ProductCondition} = values
 
     const addingUserProduct = async () => {
-      const req = await axios.post(`http://localhost:3001/products`, {
+        await axios.post(`http://localhost:3001/products`, {
         productName: productName,
         description: productDescription,
         price: productPrice,
@@ -88,6 +81,14 @@ function ModalComp() {
     };
   };
 
+   //function to close modal
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
+ 
+   const toggle = (value) => {
+     return !value;
+   };
+
   return (
     <>
       {/* creating Modal fields  */}
@@ -111,6 +112,7 @@ function ModalComp() {
               <p style={{ color: "red" }}>{formik.errors.productName}</p>
             )}
           </FloatingLabel>
+
           <FloatingLabel label="Price">
             <Form.Control
               name="productPrice"
@@ -123,7 +125,9 @@ function ModalComp() {
               <p style={{ color: "red" }}>{formik.errors.productPrice}</p>
             )}
           </FloatingLabel>
+
           <br />
+
           <FloatingLabel label="Product description" className="mb-3">
             <Form.Control
               type="text"
@@ -137,6 +141,7 @@ function ModalComp() {
               <p style={{ color: "red" }}>{formik.errors.productDescription}</p>
             )}
           </FloatingLabel>
+
           <FloatingLabel label="Your Name">
             <Form.Control
               type="text"
@@ -163,6 +168,7 @@ function ModalComp() {
             )}
             <br />
           </FloatingLabel>
+
           <FloatingLabel label="condition 0/10">
             <Form.Control
               type="text"
@@ -175,6 +181,7 @@ function ModalComp() {
               <p style={{ color: "red" }}>{formik.errors.ProductCondition}</p>
             )}
           </FloatingLabel>
+
           <br />
           <FloatingLabel label="Enter City">
             <Form.Control
@@ -189,6 +196,7 @@ function ModalComp() {
               <p style={{ color: "red" }}>{formik.errors.location}</p>
             )}
           </FloatingLabel>
+
           <br />
           <FloatingLabel label="Enter Area">
             <Form.Control
@@ -202,6 +210,7 @@ function ModalComp() {
                  <p style={{ color: "red" }}>{formik.errors.area}</p>
                )}
           </FloatingLabel>
+
           <br />
           <FloatingLabel label="Detail Description">
             <Form.Control
@@ -216,6 +225,7 @@ function ModalComp() {
               <p style={{ color: "red" }}>{formik.errors.detailDescription}</p>
             )}
           </FloatingLabel>
+          
           <br />
           <input type="file" onChange={onImageFileChangeHandler} />
           <label htmlFor="input">

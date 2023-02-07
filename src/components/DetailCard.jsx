@@ -18,7 +18,7 @@ function DetailCard() {
 
   //function to run creating toggle function everytime when product detail card change
   useEffect(() => {
-    setToggleContactNumber((prevState) => !prevState);
+    setToggleContactNumber(true);
   }, [id]);
 
   return (
@@ -55,9 +55,7 @@ function DetailCard() {
               <div>
                 Seller Contact Number: ****-******
                 <button
-                  onClick={() => {
-                    setToggleContactNumber(toggle);
-                  }}
+                  onClick={toggle}
                 >
                   Show Number
                 </button>
@@ -76,8 +74,8 @@ function DetailCard() {
           backgroundColor: "white",
         }}
       >
-        {" "}
-        Product Condition: {singleProduct.ProductCondition}{" "}
+    
+        Product Condition: {singleProduct.ProductCondition}/10
       </div>
       <br />
       <div

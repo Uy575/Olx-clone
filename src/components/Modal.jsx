@@ -27,6 +27,7 @@ function ModalComp() {
   area: "",
   ProductCondition: "",
   sellerName: "",
+  Image: null,
   
 }
   const formik = useFormik({
@@ -34,6 +35,7 @@ function ModalComp() {
     validationSchema: modalSchema,
     onSubmit: (values) => {
       UploadingDetail(values);
+      console.log(values.Image)
     },
   });
 
@@ -71,15 +73,15 @@ function ModalComp() {
   };
 
   //function to handle read file
+  if(formik.values.Image){
+   
+      const reader = new FileReader();
+      reader.readAsDataURL(formik.values.Image);
+      reader.onload = () => {
+        setProductImage(reader.result);
+      };
+    }
 
-  const onImageFileChangeHandler = (e) => {
-    const Image = e.target.files;
-    const reader = new FileReader();
-    reader.readAsDataURL(Image[0]);
-    reader.onload = (e) => {
-      setProductImage(e.target.result);
-    };
-  };
 
    //function to close modal
    const handleClose = () => setShow(false);
@@ -227,7 +229,12 @@ function ModalComp() {
           </FloatingLabel>
           
           <br />
-          <input type="file" onChange={onImageFileChangeHandler} />
+          <input type="file" name="Image" onChange={(e)=>{
+                  formik.setFieldValue("Image",e.target.files[0])
+          }} />
+            {formik.touched.Image && formik.errors.Image && (
+              <p style={{ color: "red" }}>{formik.errors.Image}</p>
+            )}
           <label htmlFor="input">
             Want Featured?
             <input

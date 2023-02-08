@@ -42,6 +42,8 @@ export const modalSchema = Yup.object({
                   .max(20,"area name can not exceed 30 characters") 
                   .required("please fill out this field") 
     ,
+    Image :     Yup.mixed()
+                 .required("please insert an image"),
                   
     })
 
